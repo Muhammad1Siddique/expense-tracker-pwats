@@ -1,6 +1,6 @@
 import React from 'react'
 import './ExpenseStyle.css'
-import { Card, Row, Col } from 'react-bootstrap';
+import { Card, Row, Col, Alert, Form, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const ExpenseCard = () => {
@@ -24,7 +24,35 @@ const ExpenseCard = () => {
                 </Row>
                 </Card.Body>
             </Card>
-            <h4 className="">History</h4>
+            <h4 className="History mt-4">History</h4>
+            <Alert variant="success">
+                <button className="delete-btn" >X</button>
+                <p className="History-record"><span>Deposit</span><span>$210</span></p>
+            </Alert>
+            <Alert variant="danger">
+                <button className="delete-btn" >X</button>
+                <p className="History-record"><span>Deposit</span><span>-$90</span></p>
+            </Alert>
+
+            <h4 className="History mt-4">Add New Transactions</h4>
+            <Form>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Description</Form.Label>
+                    <Form.Control type="text" placeholder="Description" />
+                    
+                </Form.Group>
+
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                    <Form.Label>Amount</Form.Label>
+                    <Form.Control type="number" placeholder="Amount" />
+                    <Form.Text className="text-muted">
+                    negative for expense, positive for income
+                    </Form.Text>
+                </Form.Group>
+                <Button variant="primary" type="submit">
+                    Add Transaction
+                </Button>
+                </Form>
         </div>
     )
 }

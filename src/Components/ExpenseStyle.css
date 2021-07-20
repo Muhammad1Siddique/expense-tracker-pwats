@@ -4,3 +4,23 @@
     background-color: #ececec;
     display: block;
 }
+.History{
+    border-bottom: 1px solid #bababa;
+}
+.delete-btn {
+    cursor: pointer;
+    background-color: #145649;
+    border: 0;
+    color: #fff;
+    font-size: 20px;
+    line-height: 20px;
+    padding: 2px 5px;
+    top: 50%;
+    float: right;
+    transform: translate(70%, -0%);
+    transition: opacity 0.3s ease;
+  }
+  .History-record{
+    display: flex;
+    justify-content: space-between;
+  }
