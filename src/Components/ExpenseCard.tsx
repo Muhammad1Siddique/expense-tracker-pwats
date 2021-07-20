@@ -16,17 +16,17 @@ const ExpenseCard = () => {
         <div className="Balance-Card shadow-sm rounded mt-4 p-3">
             <h1 className="text-center p-4"><strong>Expense Tracker</strong></h1>
             <h4>Your Balance</h4>
-            <h3><strong>$120</strong></h3>
+            <h3><strong>$220</strong></h3>
             <Card>
                 <Card.Body>
                 <Row>
                     <Col>
                         <h4 className="text-center">Income</h4>
-                        <h4 className="text-center text-success"><strong>$210</strong></h4>
+                        <h4 className="text-center text-success"><strong>$500</strong></h4>
                     </Col>
                     <Col>
                         <h4 className="text-center">Expense</h4>
-                        <h4 className="text-center text-danger"><strong>-$90</strong></h4>
+                        <h4 className="text-center text-danger"><strong>-$280</strong></h4>
                     </Col>
                 </Row>
                 </Card.Body>

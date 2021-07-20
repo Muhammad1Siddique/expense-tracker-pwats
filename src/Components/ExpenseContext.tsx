@@ -5,8 +5,9 @@ import {createContext} from 'react'
         amount:number;
     }
     const Transactions:transObject[]=[
-        {desc:"Deposit", amount: 210},
-        {desc:"Coke", amount:-90}
+        {desc:"Deposit", amount: 500},
+        {desc:"Mango", amount:-200},
+        {desc:"Lemon", amount: -80}
     ]
 
 
