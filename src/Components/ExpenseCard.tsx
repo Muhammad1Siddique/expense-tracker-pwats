@@ -1,9 +1,16 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import './ExpenseStyle.css'
 import { Card, Row, Col, Alert, Form, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { TransactionContext } from './ExpenseContext';
+
+type transObject = {
+    desc: String;
+    amount:number;
+}
 
 const ExpenseCard = () => {
+    const Transactions = useContext(TransactionContext)
     return (
         // Balance Card Main Function
         <div className="Balance-Card shadow-sm rounded mt-4 p-3">
@@ -25,14 +32,25 @@ const ExpenseCard = () => {
                 </Card.Body>
             </Card>
             <h4 className="History mt-4">History</h4>
-            <Alert variant="success">
-                <button className="delete-btn" >X</button>
-                <p className="History-record"><span>Deposit</span><span>$210</span></p>
-            </Alert>
-            <Alert variant="danger">
-                <button className="delete-btn" >X</button>
-                <p className="History-record"><span>Deposit</span><span>-$90</span></p>
-            </Alert>
+            {
+                Transactions.map((transObj:transObject, index:number)=>{
+                    let chec;
+                    let sign;
+                    if(Number(transObj.amount)>0){
+                         chec = true;
+                         sign = "+";
+                    }else{
+                         chec = false;
+                         sign = "-";
+                    }
+                    return(
+                        <Alert key={index} variant={`${chec ? 'success': 'danger'}`}>
+                            <button className={`delete-btn ${chec ? 'delete-success': 'delete-danger'}`} >X</button>
+                            <p className="History-record"><span>{transObj.desc}</span><span>{sign}${Math.abs(transObj.amount) }</span></p>
+                        </Alert>
+                    )
+                })
+            }
 
             <h4 className="History mt-4">Add New Transactions</h4>
             <Form>
