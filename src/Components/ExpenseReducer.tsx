@@ -1,10 +1,10 @@
-type transObject = {
-  amount: number;
-  desc: string;
-  transactions: any;
-  addTransaction: (amount: number, desc: string) => {};
-  deleteTransaction: (actionId: number) => {};
-};
+// type transObject = {
+//   amount: number;
+//   desc: string;
+//   transactions: any;
+//   addTransaction: (amount: number, desc: string) => {};
+//   deleteTransaction: (actionId: number) => {};
+// };
   
   export const TransactionReducer = ((state:any, action:any) => {
 
