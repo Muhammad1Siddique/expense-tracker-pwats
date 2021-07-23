@@ -1,9 +1,12 @@
 type transObject = {
-    amount: number,
-    desc: string
-  }
+  amount: number;
+  desc: string;
+  transactions: any;
+  addTransaction: (amount: number, desc: string) => {};
+  deleteTransaction: (actionId: number) => {};
+};
   
-export const TransactionReducer = ((state:transObject[], action:any) => {
+  export const TransactionReducer = ((state:any, action:any) => {
 
     switch(action.type){
         case "add_transaction":{
