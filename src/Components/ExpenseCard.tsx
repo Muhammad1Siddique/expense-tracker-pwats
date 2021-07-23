@@ -10,20 +10,19 @@ type transObject = {
 }
 
 const ExpenseCard = () => {
+    
+    let {transactions, addTransaction, deleteTransaction} = useContext(TransactionContext);
     let [newDesc, setDesc] = useState("");
     let [newAmount, setAmount] = useState(0);
-    let {transactions, addTransaction, deleteTransaction} = useContext(TransactionContext);
-
     const handleAddition = (event:any)=>{
         event.preventDefault();
         if(Number(newAmount)===0){
             window.alert("Zero is not allow");
             return false;
         }
-        addTransaction({
-            amount: Number(newAmount),
-            desc: newDesc
-        })
+        console.log(Number(newAmount));
+        console.log(newDesc);
+        addTransaction( Number(newAmount), newDesc)
         
         setDesc("");
         setAmount(0);

@@ -1,29 +1,33 @@
 
 import { createContext, useReducer } from "react";
-import {TransactionReducer} from './ExpenseReducer';
+import { TransactionReducer} from './ExpenseReducer';
 
 
-type transObject = {
+interface transObject {
     amount:number,
     desc:string
 }
 
-
-const initialTransactions:transObject[] = [] 
-// const initialTransactions:transObject[] = [
-//     {amount: 300, desc: "deposit"},
-//     {amount: -140, desc: "chicken meet"},
-//     {amount: -60, desc: "vegitable"}
-
-// ]
-
+interface initialState {
+    transactions: transObject[];
+    addTransaction: (amount: number, desc: string) => void;
+    deleteTransaction: (actionId: number) => void;
+  }
   
+  // const initialTransactions: any = {};
+  
+  const initialTransactions: initialState = {
+    transactions: [],
+    addTransaction: () => {},
+    deleteTransaction: () => {},
+  };
+
+
 
 export const TransactionContext = createContext(initialTransactions);
 
 export const TransactionProvider = ({children}:{children:any})=>{
-    let  [state, dispatch] = useReducer(TransactionReducer, initialTransactions)
-    console.log(state);
+    let  [transactions, dispatch] = useReducer(TransactionReducer, initialTransactions.transactions)
     function addTransaction(amount:number, desc:string){
         dispatch({
             type: "add_transaction",
@@ -41,8 +45,9 @@ export const TransactionProvider = ({children}:{children:any})=>{
     }
 
     return(
-        <TransactionContext.Provider value={{
-            transactions: state,
+        <TransactionContext.Provider 
+        value={{
+            transactions,
             addTransaction,
             deleteTransaction
         }}>
