@@ -14,7 +14,7 @@ type transObject = {
         }
         case "delete_transaction":{
           let value = state[action.payload];
-          return state.filter((item) => item !== value)
+          return state.filter((item:any) => item !== value)
         }
         default:
             return state;
